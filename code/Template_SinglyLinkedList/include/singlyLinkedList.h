@@ -29,38 +29,44 @@ typedef struct _node {
 } Node;
 
 /**
-* Function: addNodeToListBegin
-* Usage: addNodeAtListBegin(Node **headRef, int addData);
-* -------------------------------------------------------
-* Parameter: headRef is a pointer to list head node. We pass pointer
-* since adding new node is going to change where the list head pointing to
+* --------------------------------------------------------
+* Function : sListAddNodeAtBegin
+* Usage    : sListAddNodeAtBegin(Node **headRef, int addData);
+* Parameter: headRef is a pointer to list head node.
 * Parameter: addData is an int value that needs to be added
-* to the begining of the list.
+*            to the begining of the list.
+* Notes    : We pass pointer since adding new node is going to
+*            change where the list head pointing to
+* --------------------------------------------------------
 */
-
-void addNodeToListBegin(Node **headRef, int addData);
+void sListAddNodeAtBegin(Node **headRef, int addData);
 
 /**
-* Function: addNodeToListEnd
-* Usage: addNodeAtListEnd(Node **headRef, int addData);
-* -------------------------------------------------------
-* Parameter: headRef is a pointer to list head node. We pass pointer
-* since we may end up passing empty list.
-* Parameter: addData is an int value that needs to be added
-* to the end of the list.
+* --------------------------------------------------------
+* Function : sListAddNodeAtEnd
+* Usage    : sListAddNodeAtEnd(Node **headRef, int addData);
+* Parameter: headRef is a pointer to list head node.
+* Parameter: addData is an int value that is added to end
+* Notes    : We pass pointer since we pass pointer
+*            since we may end up passing empty list.
+* --------------------------------------------------------
 */
+void sListAddNodeAtEnd(Node **headRef, int addData);
 
-void addNodeToListEnd(Node **headRef, int addData);
 
-void addNodeToListEnd(Node **headRef, int addData);
+void sListAddNodeAtPos(Node **headRef, int addData, int pos);
 
-int getListNodeCountIterative(Node *head);
+int sListGetCountIterative(Node *head);
 
-int getListNodeCountRecursive(Node *head);
+int sListGetCountRecursive(Node *head);
 
-void deleteNodeAtListBegin(Node **headRef);
+void sListDelNodeAtBegin(Node **headRef);
 
-void deleteNodeAtListEnd(Node **headRef);
+void sListDelNodeAtEnd(Node **headRef);
+
+void sListDelNodeAtPos(Node **headRef, int pos);
+
+void sListDelAllNode(Node **headRef);
 
 void deleteList(Node **headRef);
 

@@ -1,6 +1,6 @@
 /* File: singlyLinkedListTest.c
 * -----------------------------
-* A program to exercise some basic functionality of the singly linked list. 
+* A program to exercise some basic functionality of the singly linked list.
 */
 
 #include <stdio.h>
@@ -20,15 +20,15 @@ static void verify(int expected, int found, char *msg)
 		(expected == found) ? "Seems ok." : "##### PROBLEM HERE #####");
 }
 
-int main(){
+int main() {
 	Node *head = NULL;
 	int data;
 	int arr[5] = { 1, 2, 3, 4, 5 };
-	
+
 	printf("------------ Starting Simple test ------------\n");
 	printf("Testing addNodeToListBegin ......\n");
 	data = 7;
-	addNodeToListBegin(&head, data);
+	sListAddNodeAtBegin(&head, data);
 	verify(data, head->data, "AddNodeToListBegin");
 
 
