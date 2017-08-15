@@ -60,14 +60,12 @@ int sListGetCountIterative(Node *head);
 
 int sListGetCountRecursive(Node *head);
 
-void sListDelNodeAtBegin(Node **headRef);
+int sListDelNodeAtBegin(Node **headRef);
 
 void sListDelNodeAtEnd(Node **headRef);
 
 void sListDelNodeAtPos(Node **headRef, int pos);
 
-void sListDelAllNode(Node **headRef);
-
-void deleteList(Node **headRef);
+void sListDelAllNodes(Node **headRef);
 
 #endif	//_singlyLinkedList_h

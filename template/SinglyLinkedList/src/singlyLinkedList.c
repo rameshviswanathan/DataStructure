@@ -31,7 +31,7 @@ int sListGetCountRecursive(Node *head) {
 	NOT_YET_IMPLEMENTED;
 }
 
-void sListDelNodeAtBegin(Node **headRef) {
+int sListDelNodeAtBegin(Node **headRef) {
 	NOT_YET_IMPLEMENTED;
 }
 
@@ -43,6 +43,6 @@ void sListDelNodeAtPos(Node **headRef, int pos) {
 	NOT_YET_IMPLEMENTED;
 }
 
-void sListDelAllNode(Node **headRef) {
+void sListDelAllNodes(Node **headRef) {
 	NOT_YET_IMPLEMENTED;
 }
