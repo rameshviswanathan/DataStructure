@@ -24,13 +24,23 @@ int main() {
 	Node *head = NULL;
 	int data;
 	int arr[5] = { 1, 2, 3, 4, 5 };
+	int i;
 
 	printf("------------ Starting Simple test ------------\n");
 	printf("Testing addNodeToListBegin ......\n");
 	data = 7;
+	sListAddNodeAtBegin(NULL, data);
+	verify((int)NULL, (int)head, "AddNodeToListBegin");
+
 	sListAddNodeAtBegin(&head, data);
 	verify(data, head->data, "AddNodeToListBegin");
 
+	verify(1, sListGetCountIterative(head), "GetCountIterative");
+
+	verify(data, sListDelNodeAtBegin(&head), "DeleteNodeAtBegin");
+	verify((int)NULL, (int)head, "DeleteNodeAtBegin");
+
+	
 
 	return 0;
 }
