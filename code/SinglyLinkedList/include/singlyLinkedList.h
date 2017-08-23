@@ -47,25 +47,104 @@ void sListAddNodeAtBegin(Node **headRef, int addData);
 * Usage    : sListAddNodeAtEnd(Node **headRef, int addData);
 * Parameter: headRef is a pointer to list head node.
 * Parameter: addData is an int value that is added to end
-* Notes    : We pass pointer since we pass pointer
-*            since we may end up passing empty list.
+* Notes    : We pass pointer since we may end up passing empty list.
 * --------------------------------------------------------
 */
 void sListAddNodeAtEnd(Node **headRef, int addData);
 
-
+/**
+* --------------------------------------------------------
+* Function : sListAddNodeAtPos
+* Usage    : sListAddNodeAtPos(Node **headRef, int addData, int pos);
+* Parameter: headRef is a pointer to list head node.
+* Parameter: addData is an int value that is added to end
+* Pos      : position at which data to be added.  Position are
+*            zero indexed.
+* Notes    : We pass pointer since we may end up passing empty list.
+* --------------------------------------------------------
+*/
 void sListAddNodeAtPos(Node **headRef, int addData, int pos);
 
+/**
+* --------------------------------------------------------
+* Function : sListGetCountIterative
+* Usage    : sListGetCountIterative(Node *head);
+* Parameter: headRef is a pointer to list head node.
+* Return   : The node count
+* Notes    : Iterative based appraoch to find node count
+* --------------------------------------------------------
+*/
 int sListGetCountIterative(Node *head);
 
+/**
+* --------------------------------------------------------
+* Function : sListGetCountRecursive
+* Usage    : sListGetCountRecursive(Node *head);
+* Parameter: headRef is a pointer to list head node.
+* Return   : The node count
+* Notes    : Recursive based appraoch to find node count
+* --------------------------------------------------------
+*/
 int sListGetCountRecursive(Node *head);
 
+/**
+* --------------------------------------------------------
+* Function : sListDelNodeAtBegin
+* Usage    : sListDelNodeAtBegin(Node **headRef);
+* Parameter: headRef is a pointer to list head node.
+* Notes    : Delete the first Node in the list
+* --------------------------------------------------------
+*/
 int sListDelNodeAtBegin(Node **headRef);
 
+/**
+* --------------------------------------------------------
+* Function : sListDelNodeAtEnd
+* Usage    : sListDelNodeAtEnd(Node **headRef);
+* Parameter: headRef is a pointer to list head node.
+* Notes    : Delete the end Node in the list
+* --------------------------------------------------------
+*/
 void sListDelNodeAtEnd(Node **headRef);
 
+/**
+* --------------------------------------------------------
+* Function : sListDelNodeAtPos
+* Usage    : sListDelNodeAtPos(Node **headRef, int pos);
+* Parameter: headRef is a pointer to list head node.
+* Notes    : Delete the node at a posisition pos in the list
+* --------------------------------------------------------
+*/
 void sListDelNodeAtPos(Node **headRef, int pos);
 
+/**
+* --------------------------------------------------------
+* Function : sListDelAllNodes
+* Usage    : sListDelAllNodes(Node **headRef);
+* Parameter: headRef is a pointer to list head node.
+* Notes    : Trash the list. Remember to set *headRef to 0
+* --------------------------------------------------------
+*/
 void sListDelAllNodes(Node **headRef);
+
+/**
+* --------------------------------------------------------
+* Function : sListDelAllNodes
+* Usage : sListDelAllNodes(Node **headRef);
+* Parameter: headRef is a pointer to list head node.
+* Notes : Trash the list.Remember to set *headRef to 0
+* --------------------------------------------------------
+*/
+void sListDelRepeatOccurrences(Node **headRef, int data);
+
+/**
+* --------------------------------------------------------
+* Function : sListDelRepeatOccurrences
+* Usage    : sListDelRepeatOccurrences(Node *headRef, int data);
+* Parameter: headRef is a pointer to list head node.
+* Notes    : List walk through and printing data
+* --------------------------------------------------------
+*/
+void sListTraverse(Node *head);
 
 #endif	//_singlyLinkedList_h
