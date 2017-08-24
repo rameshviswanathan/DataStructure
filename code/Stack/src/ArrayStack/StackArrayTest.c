@@ -23,22 +23,24 @@ static void verify(int expected, int found, char *msg)
 int main() {
 	int capacity = 100;
 
-	void * arrayStackObj = aStack_CreateStack(capacity);
-	verify(1, aStack_IsEmpty(), "aStack_IsEmpty()");
-	verify(0, aStack_IsFull(), "aStack_IsFull()");
+	void *stackObj = aStack_CreateStack(capacity);
+	verify(1, aStack_IsEmpty(stackObj), "aStack_IsEmpty()");
+	verify(0, aStack_IsFull(stackObj), "aStack_IsFull()");
 
 	int i = 0;
 	int arr[] = { 1, 2, 3, 4 };
 	int arrSize = sizeof(arr) / sizeof(int);
 	for (i = 0; i < arrSize; ++i) {
-		aStack_Push(arr[i]);
+		aStack_Push(stackObj, arr[i]);
 	}
 
 	i = arrSize - 1;
-	while (aStack_IsEmpty() == 0) {
-		verify(arr[i], aStack_Pop(), "aStack_Pop");
+	while (aStack_IsEmpty(stackObj) == 0) {
+		verify(arr[i], aStack_Pop(stackObj), "aStack_Pop");
 		--i;
 	}
+
+	aStack_DestroyStack(stackObj);
 
 	return 0;
 }

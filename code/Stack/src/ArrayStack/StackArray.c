@@ -15,31 +15,75 @@
 /*---------------------------------------------------------------------------*/
 
 void *aStack_CreateStack(unsigned int capacity) {
-	NOT_YET_IMPLEMENTED;
+	assert(capacity > 0);
+	Stack *stackObj = (Stack *)malloc(sizeof(Stack));
+	assert(stackObj != NULL);
+
+	stackObj->capacity = capacity;
+	stackObj->top = -1;
+
+	stackObj->array = (int *)malloc(sizeof(int) * capacity);
+	assert(stackObj->array != NULL);
+
+	return stackObj;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int aStack_IsFull() {
-	NOT_YET_IMPLEMENTED;
+int aStack_IsFull(void *stack) {
+	assert(stack != NULL);
+	Stack *stackObj = (Stack *)stack;
+	if (stackObj->capacity - 1 == stackObj->top)
+		return TRUE;
+	return FALSE;
+
 }
 
 /*---------------------------------------------------------------------------*/
 
-int aStack_IsEmpty() {
-	NOT_YET_IMPLEMENTED;
+int aStack_IsEmpty(void *stack) {
+	assert(stack != NULL);
+	Stack *stackObj = (Stack *)stack;
+
+	if (stackObj->top == -1)
+		return TRUE;
+
+	return FALSE;
 }
 
 /*---------------------------------------------------------------------------*/
 
-void aStack_Push(int item) {
-	NOT_YET_IMPLEMENTED;
+void aStack_Push(void *stack, int item) {
+	assert(stack != NULL);
+	Stack *stackObj = (Stack *)stack;
+
+	if (aStack_IsFull(stack))
+		return;
+
+	stackObj->array[++stackObj->top] = item;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int aStack_Pop() {
-	NOT_YET_IMPLEMENTED;
+int aStack_Pop(void *stack) {
+	assert(stack != NULL);
+	Stack *stackObj = (Stack *)stack;
+
+	if (aStack_IsEmpty(stack))
+		return INT_MIN;
+
+	return stackObj->array[stackObj->top--];
+}
+
+/*---------------------------------------------------------------------------*/
+
+void aStack_DestroyStack(void *stack) {
+	assert(stack != NULL);
+	Stack *stackObj = (Stack *)stack;
+
+	free(stackObj->array);
+	free(stackObj);
+	stackObj = NULL;
 }
 
 /*---------------------------------------------------------------------------*/

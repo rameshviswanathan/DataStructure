@@ -20,25 +20,31 @@ void *aStack_CreateStack(unsigned int capacity) {
 
 /*---------------------------------------------------------------------------*/
 
-int aStack_IsFull() {
+int aStack_IsFull(void *stack) {
 	NOT_YET_IMPLEMENTED;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int aStack_IsEmpty() {
+int aStack_IsEmpty(void *stack) {
 	NOT_YET_IMPLEMENTED;
 }
 
 /*---------------------------------------------------------------------------*/
 
-void aStack_Push(int item) {
+void aStack_Push(void *stack, int item) {
 	NOT_YET_IMPLEMENTED;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int aStack_Pop() {
+int aStack_Pop(void *stack) {
+	NOT_YET_IMPLEMENTED;
+}
+
+/*---------------------------------------------------------------------------*/
+
+void aStack_DestroyStack(void *stack) {
 	NOT_YET_IMPLEMENTED;
 }
 
