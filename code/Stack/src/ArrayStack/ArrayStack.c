@@ -3,7 +3,7 @@
 * ------------------------
 */
 
-#include "stackArray.h"
+#include "ArrayStack.h"
 
 #include <stdio.h>
 #include <stdlib.h>

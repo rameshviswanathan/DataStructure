@@ -70,4 +70,4 @@ void lStack_Push(int item);
 */
 int lStack_Pop();
 
-#endif	// _STACK_ARRAY_H
+#endif	// _LINKED_STACK_H

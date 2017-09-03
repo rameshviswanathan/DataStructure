@@ -10,10 +10,11 @@
 #include "LinkedStack.h"
 
 /* Function: verify
-* ----------------
+* -----------------
 * Used to compare a given result with what was expected and report on whether
 * passed/failed.
 */
+
 static void verify(int expected, int found, char *msg)
 {
 	printf("%s expect: %d found: %d. %s\n", msg, expected, found,

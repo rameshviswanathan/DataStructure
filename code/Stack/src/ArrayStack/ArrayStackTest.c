@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "StackArray.h"
+#include "ArrayStack.h"
 
 /* Function: verify
 * ----------------

@@ -1,5 +1,5 @@
 /**
-* File: StackArray
+* File: ArrayStack
 * ----------------
 * Defines the stack data structure implemented using arrays.
 *
@@ -7,8 +7,8 @@
 * Push and Pop operation.
 */
 
-#ifndef _STACK_ARRAY_H
-#define _STACK_ARRAY_H
+#ifndef _ARRAY_STACK_H
+#define _ARRAY_STACK_H
 
 #include <stdio.h>
 
@@ -86,4 +86,4 @@ void aStack_Push(void *stack, int item);
 */
 int aStack_Pop(void *stack);
 
-#endif	// _STACK_ARRAY_H
+#endif	// _ARRAY_STACK_H

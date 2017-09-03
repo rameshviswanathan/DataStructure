@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\ArrayStack\ArrayStack.c" />
+    <ClCompile Include="..\..\..\src\ArrayStack\ArrayStackTest.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\ArrayStack\ArrayStack.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{16983A43-DC8C-409C-89EC-309AD6CE15F7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -143,13 +150,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\include\ArrayStack\StackArray.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\src\ArrayStack\StackArray.c" />
-    <ClCompile Include="..\..\..\src\ArrayStack\StackArrayTest.c" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
