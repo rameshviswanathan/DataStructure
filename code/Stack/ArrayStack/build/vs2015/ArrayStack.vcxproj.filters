@@ -11,15 +11,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\LinkedStack\LinkedStack.h">
+    <ClInclude Include="..\..\include\ArrayStack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\LinkedStack\LinkedStack.c">
+    <ClCompile Include="..\..\src\ArrayStack.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\LinkedStack\LinkedStackTest.c">
+    <ClCompile Include="..\..\src\ArrayStackTest.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
