@@ -26,6 +26,8 @@ typedef struct _node {
 	struct _node *next;
 } Node;
 
+static Node *head = NULL;
+
 /*---------------------------------------------------------------------------*/
 
 static void *lStack_allocateNode(int data) {
@@ -40,18 +42,13 @@ static void *lStack_allocateNode(int data) {
 
 /*---------------------------------------------------------------------------*/
 
-void **lStack_CreateStack() {
-	Node *head = NULL;
-	return &head;
+void lStack_CreateStack() {
 }
 
 /*---------------------------------------------------------------------------*/
 
-int lStack_IsEmpty(void **stack) {
-	assert(stack != NULL);
-	Node **headNode = (Node **)stack;
-
-	if (*headNode == NULL)
+int lStack_IsEmpty() {
+	if (head == NULL)
 		return TRUE;
 
 	return FALSE;
@@ -59,27 +56,22 @@ int lStack_IsEmpty(void **stack) {
 
 /*---------------------------------------------------------------------------*/
 
-void lStack_Push(void **stack, int item) {
-	assert(stack != NULL);
-	Node **headNode = (Node **)stack;
+void lStack_Push(int item) {
 
 	//allocate new node
 	Node *newNode = lStack_allocateNode(item);
-	newNode->next = *headNode;
-	*headNode = newNode;
+	newNode->next = head;
+	head = newNode;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int lStack_Pop(void **stack) {
-	assert(stack != NULL);
-	Node **headNode = (Node **)stack;
-
-	if (lStack_IsEmpty(stack))
+int lStack_Pop() {
+	if (lStack_IsEmpty())
 		return INT_MIN;
 
-	Node *retNode = *headNode;
-	*headNode = retNode->next;
+	Node *retNode = head;
+	head = retNode->next;
 
 	int val = retNode->data;
 	free(retNode);
@@ -89,12 +81,9 @@ int lStack_Pop(void **stack) {
 
 /*---------------------------------------------------------------------------*/
 
-void lStack_DestroyStack(void **stack) {
-	assert(stack != NULL);
-	Node **headNode = (Node **)stack;
-
-	while (!lStack_isEmpty(stack)) {
-		lStack_Pop(stack);
+void lStack_DestroyStack() {
+	while (!lStack_IsEmpty()) {
+		(void)lStack_Pop();
 	}
 }
 
