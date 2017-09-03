@@ -12,6 +12,21 @@
 
 #define NOT_YET_IMPLEMENTED printf("%s() not yet implemented!!!\n", __FUNCTION__); exit(1)	
 
+/**
+* Type: Stack
+* -----------
+* Stack strucure holds
+* a) stack capacity represents the maximum stack size
+* b) top which tracks the current entry of the stack
+* c) array to hold all stack data elements
+*/
+
+typedef struct _stack {
+	unsigned int capacity;
+	int top;
+	int *array;
+} Stack;
+
 /*---------------------------------------------------------------------------*/
 
 void *aStack_CreateStack(unsigned int capacity) {

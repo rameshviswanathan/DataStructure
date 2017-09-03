@@ -16,21 +16,6 @@
 #define FALSE		0
 
 /**
-* Type: Stack
-* -----------
-* Stack strucure holds
-* a) stack capacity represents the maximum stack size
-* b) top which tracks the current entry of the stack
-* c) array to hold all stack data elements
-*/
-
-typedef struct _stack {
-	unsigned int capacity;
-	int top;
-	int *array;
-} Stack;
-
-/**
 * --------------------------------------------------------
 * Function : aStack_CreateStack
 * Usage    : aStack_CreateStack(unsigned int capacity);
