@@ -11,15 +11,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\DLinkedList.h">
+    <ClInclude Include="..\..\include\DLinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\DLinkedList.c">
+    <ClCompile Include="..\..\src\DLinkedList.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\DLinkedListTest.c">
+    <ClCompile Include="..\..\src\DLinkedListTest.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

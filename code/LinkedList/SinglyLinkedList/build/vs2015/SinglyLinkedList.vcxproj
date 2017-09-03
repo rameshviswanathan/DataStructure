@@ -18,6 +18,13 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\singlyLinkedList.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\singlyLinkedList.c" />
+    <ClCompile Include="..\..\src\singlyLinkedListTest.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{34D3BB20-D056-4BCA-A449-3DC28137310C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -89,6 +96,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(Solution_Dir)../../include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,13 +154,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\include\singlyLinkedList.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\src\singlyLinkedList.c" />
-    <ClCompile Include="..\..\src\singlyLinkedListTest.c" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

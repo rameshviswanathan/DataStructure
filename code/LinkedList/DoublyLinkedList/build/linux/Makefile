@@ -26,11 +26,13 @@ LDFLAGS = -lm
 # edit the Makefile.
 HEADERS =../../include/DLinkedList.h 
  
+TARGET_PATH = ./../../../build/linux/out
+
 SOURCES = ../../src/DLinkedList.c \
           ../../src/DLinkedListTest.c
 
 OBJECTS = $(SOURCES:.c=.o)
-TARGET = DlinkedList
+TARGET = $(TARGET_PATH)/DLinkedListTest
 
 
 # The first target defined in the makefile is the one
@@ -39,6 +41,7 @@ TARGET = DlinkedList
 # assume that it depends on all the named OBJECTS files.
 
 $(TARGET) : $(OBJECTS) Makefile.dependencies
+	mkdir -p $(TARGET_PATH)
 	$(CC) $(CFLAGS) -o $@ $(OBJECTS) $(LDFLAGS)
 
 # In make's default rules, a .o automatically depends on its .c file
