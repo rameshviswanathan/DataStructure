@@ -23,7 +23,6 @@ static void verify(int expected, int found, char *msg)
 int main() {
 	Node *head = NULL;
 	int data;
-	int arr[5] = { 1, 2, 3, 4, 5 };
 
 	printf("------------ Starting Simple test ------------\n");
 	printf("Testing addNodeToListBegin ......\n");
@@ -35,7 +34,7 @@ int main() {
 	verify(1, dListGetCountIterative(head), "dListGetCountIterative");
 
 	verify(data, dListDelNodeAtBegin(&head), "dListDelNodeAtBegin");
-	verify((int)0, (int *)head, "dListDelNodeAtBegin");
+	verify((int)0, (int)(int *)head, "dListDelNodeAtBegin");
 
 	dListAddNodeAtEnd(&head, 1);
 	dListAddNodeAtEnd(&head, 2);

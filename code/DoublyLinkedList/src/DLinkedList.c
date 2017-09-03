@@ -3,7 +3,7 @@
 * ------------------------
 */
 
-#include "DlinkedList.h"
+#include "DLinkedList.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -187,7 +187,7 @@ void dListDelAllNodes(Node **headRef) {
 void dListDelRepeatOccurrences(Node **headRef, int data) {
 	assert(headRef != NULL && *headRef != NULL);
 	while (*headRef != NULL && (*headRef)->data == data) {
-		dListDelNodeAtBegin(headRef, data);
+		dListDelNodeAtBegin(headRef);
 	}
 
 	if (*headRef != NULL) {
