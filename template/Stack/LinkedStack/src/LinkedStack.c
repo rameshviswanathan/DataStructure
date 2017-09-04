@@ -7,60 +7,44 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <assert.h>
 #include <limits.h>
 
 #define NOT_YET_IMPLEMENTED printf("%s() not yet implemented!!!\n", __FUNCTION__); exit(1)	
 
-/**
-* Type: Stack
-* -----------
-* Stack strucure holds
-* a) stack capacity represents the maximum stack size
-* b) top which tracks the current entry of the stack
-* c) array to hold all stack data elements
-*/
-
-typedef struct _node {
-	int data;
-	struct _node *next;
-} Node;
-
-static Node *head = NULL;
-
 /*---------------------------------------------------------------------------*/
 
-static void *lStack_allocateNode(int data) {
+static void *lStack_allocateStack(int data) {
 	NOT_YET_IMPLEMENTED;
 }
 
 /*---------------------------------------------------------------------------*/
 
-void lStack_CreateStack() {
-}
-
-/*---------------------------------------------------------------------------*/
-
-int lStack_IsEmpty() {
+void lStack_CreateStack(Stack **stack) {
 	NOT_YET_IMPLEMENTED;
 }
 
 /*---------------------------------------------------------------------------*/
 
-void lStack_Push(int item) {
+int lStack_IsEmpty(Stack *stack) {
 	NOT_YET_IMPLEMENTED;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int lStack_Pop() {
+void lStack_Push(Stack **stack, int item) {
 	NOT_YET_IMPLEMENTED;
 }
 
 /*---------------------------------------------------------------------------*/
 
-void lStack_DestroyStack() {
+int lStack_Pop(Stack **stack) {
+	NOT_YET_IMPLEMENTED;
+}
+
+/*---------------------------------------------------------------------------*/
+
+void lStack_DestroyStack(Stack **stack) {
 	NOT_YET_IMPLEMENTED;
 }
 

@@ -7,32 +7,15 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <assert.h>
 #include <limits.h>
 
 #define NOT_YET_IMPLEMENTED printf("%s() not yet implemented!!!\n", __FUNCTION__); exit(1)	
 
-/**
-* Type: Stack
-* -----------
-* Stack strucure holds
-* a) stack capacity represents the maximum stack size
-* b) top which tracks the current entry of the stack
-* c) array to hold all stack data elements
-*/
-
-typedef struct _node {
-	int data;
-	struct _node *next;
-} Node;
-
-static Node *head = NULL;
-
 /*---------------------------------------------------------------------------*/
 
-static void *lStack_allocateNode(int data) {
-	Node *newEntry = (Node *)malloc(sizeof(Node));
+static void *lStack_allocateStack(int data) {
+	Stack *newEntry = (Stack *)malloc(sizeof(Stack));
 	assert(newEntry != NULL);
 
 	newEntry->next = NULL;
@@ -43,13 +26,15 @@ static void *lStack_allocateNode(int data) {
 
 /*---------------------------------------------------------------------------*/
 
-void lStack_CreateStack() {
+void lStack_CreateStack(Stack **stack) {
+	assert(stack != NULL);
+	*stack = NULL;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int lStack_IsEmpty() {
-	if (head == NULL)
+int lStack_IsEmpty(Stack *stack) {
+	if (stack == NULL)
 		return TRUE;
 
 	return FALSE;
@@ -57,34 +42,38 @@ int lStack_IsEmpty() {
 
 /*---------------------------------------------------------------------------*/
 
-void lStack_Push(int item) {
-
-	//allocate new node
-	Node *newNode = lStack_allocateNode(item);
-	newNode->next = head;
-	head = newNode;
+void lStack_Push(Stack **stack, int item) {
+	assert(stack != NULL);
+	
+	//allocate new Stack
+	Stack *newStack = lStack_allocateStack(item);
+	newStack->next = *stack;
+	*stack = newStack;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int lStack_Pop() {
-	if (lStack_IsEmpty())
+int lStack_Pop(Stack **stack) {
+	assert(stack != NULL);
+
+	if (lStack_IsEmpty(*stack))
 		return INT_MIN;
 
-	Node *retNode = head;
-	head = retNode->next;
+	Stack *retStack = *stack;
+	*stack = retStack->next;
 
-	int val = retNode->data;
-	free(retNode);
+	int val = retStack->data;
+	free(retStack);
 
 	return val;
 }
 
 /*---------------------------------------------------------------------------*/
 
-void lStack_DestroyStack() {
-	while (!lStack_IsEmpty()) {
-		(void)lStack_Pop();
+void lStack_DestroyStack(Stack **stack) {
+	assert(stack != NULL);
+	while (!lStack_IsEmpty(*stack)) {
+		(void)lStack_Pop(stack);
 	}
 }
 
