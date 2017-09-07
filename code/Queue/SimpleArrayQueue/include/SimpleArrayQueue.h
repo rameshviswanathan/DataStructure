@@ -19,12 +19,15 @@
 * Usage    : aQueue_CreateQueue(unsigned int capacity);
 * Parameter: Queue capacity entry with which the internal
 *            Queue will be created.
+* Parameter: resizable if set, will resize the internal storage
+*            when the storage is full. Otherwise, it is
+*            a queue with fixed size.
 * Notes    : generates the Queue storage object.  This object
 *            should be passed around between calls.
 * Returns  : queue Object
 * --------------------------------------------------------
 */
-void *aQueue_CreateQueue(unsigned int capacity);
+void *aQueue_CreateQueue(unsigned int capacity, int resizeable);
 
 /**
 * --------------------------------------------------------

@@ -21,11 +21,11 @@ static void verify(int expected, int found, char *msg)
 }
 
 int main() {
-	int capacity = 4;
+	int capacity = 2;
 
-	void *QueueObj = aQueue_CreateQueue(capacity);
+	void *QueueObj = aQueue_CreateQueue(capacity, 1);
 	verify(1, aQueue_IsEmpty(QueueObj), "aQueue_IsEmpty()");
-	verify(0, aQueue_IsFull(QueueObj), "aQueue_IsFull()");
+	verify(1, aQueue_IsFull(QueueObj), "aQueue_IsFull()");
 
 	int i = 0;
 	int arr[] = { 1, 2, 3, 4 };

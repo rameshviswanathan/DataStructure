@@ -28,11 +28,12 @@ typedef struct _Queue {
 	int front;
 	int rear;
 	int *array;
+	int resizebale;
 } Queue;
 
 /*---------------------------------------------------------------------------*/
 
-void *aQueue_CreateQueue(unsigned int capacity) {
+void *aQueue_CreateQueue(unsigned int capacity, int resizable) {
 	assert(capacity > 0);
 	Queue *queue = (Queue *)malloc(sizeof(Queue));
 	assert(queue != NULL);
@@ -42,6 +43,7 @@ void *aQueue_CreateQueue(unsigned int capacity) {
 	queue->front = -1;
 	queue->rear = -1;
 	queue->capacity = capacity;
+	queue->resizebale = resizable;
 	return queue;
 }
 
@@ -51,6 +53,9 @@ int aQueue_IsFull(void *q) {
 	assert(q != NULL);
 
 	Queue *queue = (Queue *)q;
+	if (queue->resizebale)
+		return TRUE;
+
 	if ((queue->rear + 1) % queue->capacity == queue->front)
 		return TRUE;
 
@@ -61,14 +66,26 @@ int aQueue_IsFull(void *q) {
 
 int aQueue_IsEmpty(void *q) {
 	assert(q != NULL);
-	
+
 	Queue *queue = (Queue *)q;
-	if (queue->front == queue->rear) {
-		queue->front = -1;
-		queue->rear = -1;
+	if (queue->front == -1)
 		return TRUE;
-	}
 	return FALSE;
+}
+
+/*---------------------------------------------------------------------------*/
+static void aQueue_Resize(void *q) {
+	Queue *queue = (Queue *)q;
+
+	queue->array = realloc(queue->array, sizeof(int) * (queue->capacity) * 2);
+	assert(queue->array != NULL);
+
+	if (queue->front < queue->rear) {
+		for (int i = 0; i < queue->front; ++i)
+			queue->array[queue->capacity + i] = queue->array[i];
+		queue->rear += queue->front;
+	}
+	queue->capacity *= 2;
 }
 
 /*---------------------------------------------------------------------------*/
@@ -77,8 +94,11 @@ void aQueue_Enqueue(void *q, int item) {
 	assert(q != NULL);
 
 	Queue *queue = (Queue *)q;
-	if (aQueue_IsFull(q))
-		return;
+	if ((queue->rear + 1) % queue->capacity == queue->front)
+		if (queue->resizebale)
+			aQueue_Resize(queue);
+		else
+			return;
 
 	queue->rear = (queue->rear + 1) % queue->capacity;
 	queue->array[queue->rear] = item;
@@ -96,7 +116,11 @@ int aQueue_Deque(void *q) {
 	if (aQueue_IsEmpty(q) != TRUE) {
 		Queue *queue = (Queue *)q;
 		ret = queue->array[queue->front];
-		queue->front = (queue->front + 1) % queue->capacity;
+		if (queue->front == queue->rear)
+			queue->front = queue->rear = -1;
+		else
+			queue->front = (queue->front + 1) % queue->capacity;
+
 	}
 
 	return ret;
