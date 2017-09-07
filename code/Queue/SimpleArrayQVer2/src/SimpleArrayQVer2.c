@@ -1,9 +1,9 @@
 /**
-* File: SimpleArrayQueue.c
+* File: SimpleArrayQVer2.c
 * ------------------------
 */
 
-#include "SimpleArrayQueue.h"
+#include "SimpleArrayQVer2.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -29,48 +29,49 @@ typedef struct _Queue {
 	int rear;
 	int *array;
 	int resizebale;
+	int cur_size;
 } Queue;
 
 /*---------------------------------------------------------------------------*/
 
-void *aQueue_CreateQueue(unsigned int capacity, int resizable) {
+void *aQueue2_CreateQueue(unsigned int capacity, int resizable) {
 	assert(capacity > 0);
 	Queue *queue = (Queue *)malloc(sizeof(Queue));
 	assert(queue != NULL);
 
 	queue->array = (int*)malloc(sizeof(int) * capacity);
 	assert(queue->array != NULL);
-	queue->front = -1;
-	queue->rear = -1;
+	queue->front = 0;
+	queue->rear = capacity - 1;
 	queue->capacity = capacity;
 	queue->resizebale = resizable;
+	queue->cur_size = 0;
 	return queue;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int aQueue_IsFull(void *q) {
+int aQueue2_IsFull(void *q) {
 	assert(q != NULL);
 
 	Queue *queue = (Queue *)q;
 	if (queue->resizebale)
 		return FALSE;
 
-	return (queue->rear + 1) % queue->capacity == queue->front;
-
+	return queue->cur_size == queue->capacity;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int aQueue_IsEmpty(void *q) {
+int aQueue2_IsEmpty(void *q) {
 	assert(q != NULL);
 
 	Queue *queue = (Queue *)q;
-	return queue->front == -1;
+	return queue->cur_size == 0;
 }
 
 /*---------------------------------------------------------------------------*/
-static void aQueue_Resize(void *q) {
+static void aQueue2_Resize(void *q) {
 	Queue *queue = (Queue *)q;
 
 	queue->array = realloc(queue->array, sizeof(int) * (queue->capacity) * 2);
@@ -86,37 +87,32 @@ static void aQueue_Resize(void *q) {
 
 /*---------------------------------------------------------------------------*/
 
-void aQueue_Enqueue(void *q, int item) {
+void aQueue2_Enqueue(void *q, int item) {
 	assert(q != NULL);
 
 	Queue *queue = (Queue *)q;
-	if ((queue->rear + 1) % queue->capacity == queue->front)
+	if (queue->cur_size == queue->capacity)
 		if (queue->resizebale)
-			aQueue_Resize(queue);
+			aQueue2_Resize(queue);
 		else
 			return;
 
 	queue->rear = (queue->rear + 1) % queue->capacity;
 	queue->array[queue->rear] = item;
-
-	if (queue->front == -1)
-		queue->front = 0;
+	++queue->cur_size;
 }
 
 /*---------------------------------------------------------------------------*/
 
-int aQueue_Deque(void *q) {
+int aQueue2_Deque(void *q) {
 	int ret = INT_MIN;
 	assert(q != NULL);
 
-	if (aQueue_IsEmpty(q) != TRUE) {
+	if (aQueue2_IsEmpty(q) != TRUE) {
 		Queue *queue = (Queue *)q;
 		ret = queue->array[queue->front];
-		if (queue->front == queue->rear)
-			queue->front = queue->rear = -1;
-		else
-			queue->front = (queue->front + 1) % queue->capacity;
-
+		queue->front = (queue->front + 1) % queue->capacity;
+		--queue->cur_size;
 	}
 
 	return ret;
@@ -124,7 +120,7 @@ int aQueue_Deque(void *q) {
 
 /*---------------------------------------------------------------------------*/
 
-void aQueue_DestroyQueue(void *q) {
+void aQueue2_DestroyQueue(void *q) {
 	assert(q != NULL);
 
 	Queue *queue = (Queue *)q;

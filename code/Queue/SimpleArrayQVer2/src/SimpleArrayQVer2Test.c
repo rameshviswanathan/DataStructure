@@ -7,7 +7,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "SimpleArrayQueue.h"
+#include "SimpleArrayQVer2.h"
 
 /* Function: verify
 * -----------------
@@ -23,25 +23,25 @@ static void verify(int expected, int found, char *msg)
 int main() {
 	int capacity = 2;
 
-	void *QueueObj = aQueue_CreateQueue(capacity, 1);
-	verify(1, aQueue_IsEmpty(QueueObj), "aQueue_IsEmpty()");
-	verify(0, aQueue_IsFull(QueueObj), "aQueue_IsFull()");
+	void *QueueObj = aQueue2_CreateQueue(capacity, 1);
+	verify(1, aQueue2_IsEmpty(QueueObj), "aQueue2_IsEmpty()");
+	verify(0, aQueue2_IsFull(QueueObj), "aQueue2_IsFull()");
 
 	int i = 0;
 	int arr[] = { 1, 2, 3, 4 };
 	int arrSize = sizeof(arr) / sizeof(int);
 	for (i = 0; i < arrSize; ++i) {
-		aQueue_Enqueue(QueueObj, arr[i]);
+		aQueue2_Enqueue(QueueObj, arr[i]);
 	}
-	verify(0, aQueue_IsFull(QueueObj), "aQueue_IsFull()");
+	verify(0, aQueue2_IsFull(QueueObj), "aQueue2_IsFull()");
 
 	i = 0;
-	while (aQueue_IsEmpty(QueueObj) == 0) {
-		verify(arr[i], aQueue_Deque(QueueObj), "aQueue_Deque");
+	while (aQueue2_IsEmpty(QueueObj) == 0) {
+		verify(arr[i], aQueue2_Deque(QueueObj), "aQueue2_Deque");
 		++i;
 	}
 
-	aQueue_DestroyQueue(QueueObj);
+	aQueue2_DestroyQueue(QueueObj);
 
 	return 0;
 }
