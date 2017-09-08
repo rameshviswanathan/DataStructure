@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleArrayQueue", "..\..\S
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleArrayQVer2", "..\..\SimpleArrayQVer2\build\vs2015\SimpleArrayQVer2.vcxproj", "{474C731D-FA98-4C53-B82D-5171FC718B16}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LinkedQueue", "..\..\LinkedQueue\build\vs2015\LinkedQueue.vcxproj", "{89CDCA34-C49C-4345-AC8C-984364C10BF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{474C731D-FA98-4C53-B82D-5171FC718B16}.Release|x64.Build.0 = Release|x64
 		{474C731D-FA98-4C53-B82D-5171FC718B16}.Release|x86.ActiveCfg = Release|Win32
 		{474C731D-FA98-4C53-B82D-5171FC718B16}.Release|x86.Build.0 = Release|Win32
+		{89CDCA34-C49C-4345-AC8C-984364C10BF3}.Debug|x64.ActiveCfg = Debug|x64
+		{89CDCA34-C49C-4345-AC8C-984364C10BF3}.Debug|x64.Build.0 = Debug|x64
+		{89CDCA34-C49C-4345-AC8C-984364C10BF3}.Debug|x86.ActiveCfg = Debug|Win32
+		{89CDCA34-C49C-4345-AC8C-984364C10BF3}.Debug|x86.Build.0 = Debug|Win32
+		{89CDCA34-C49C-4345-AC8C-984364C10BF3}.Release|x64.ActiveCfg = Release|x64
+		{89CDCA34-C49C-4345-AC8C-984364C10BF3}.Release|x64.Build.0 = Release|x64
+		{89CDCA34-C49C-4345-AC8C-984364C10BF3}.Release|x86.ActiveCfg = Release|Win32
+		{89CDCA34-C49C-4345-AC8C-984364C10BF3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
